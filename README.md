@@ -40,3 +40,6 @@ az keyvault certificate pending merge --file your.crt --name cert --vault-name T
 ```
 
 The certificate in Key Vault will now be in a 'Completed' state.
+
+# Terraform AzAPI
+As an alternative to using `az cli` for the `show` and `merge` operations it may be possible to continue using Terraform but with the [AzAPI Provider](https://learn.microsoft.com/en-us/azure/developer/terraform/overview-azapi-provider) to access the Key Vault REST APIs for [GetCertificateOperation](https://learn.microsoft.com/en-us/rest/api/keyvault/certificates/get-certificate-operation/get-certificate-operation?tabs=HTTP#getcertificateoperation) and [MergeCertificate](https://learn.microsoft.com/en-us/rest/api/keyvault/certificates/merge-certificate/merge-certificate?tabs=HTTP) instead.  This would need exploring and to understand the Terraform lifecycle throughout the async/long certificate process.
